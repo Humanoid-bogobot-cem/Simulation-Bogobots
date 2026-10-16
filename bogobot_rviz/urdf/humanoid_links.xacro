@@ -122,5 +122,22 @@
             		</visual>
 		</link>
 	</xacro:macro>
+
+	<xacro:macro name="link_tigh" params="name x y z row pitch yaw">
+		<link name="${name}">
+			<collision>
+        		<origin xyz="${x} ${y} ${z}" rpy="${row} ${pitch} ${yaw}"  />
+        		<geometry>
+        			<box size="0.04 0.04 0.19"/>
+        		</geometry>
+    		</collision>
+			<visual>
+        		<origin xyz="${x} ${y} ${z}" rpy="${row} ${pitch} ${yaw}" />
+        		<geometry>
+        			<box size="0.04 0.04 0.19"/>
+        		</geometry>
+    		</visual>
+		</link>
+	</xacro:macro>
 </robot>
 

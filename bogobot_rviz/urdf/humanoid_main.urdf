@@ -132,6 +132,20 @@
       </geometry>
     </visual>
   </link>
+  <link name="link_right_tight">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.085"/>
+      <geometry>
+        <box size="0.04 0.04 0.19"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.085"/>
+      <geometry>
+        <box size="0.04 0.04 0.19"/>
+      </geometry>
+    </visual>
+  </link>
   <link name="link_left_hip_metal">
     <collision>
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.0175"/>
@@ -157,6 +171,20 @@
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.0225"/>
       <geometry>
         <mesh filename="package://bogobot_rviz/meshes/motor_doble_join.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="link_left_tight">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.085"/>
+      <geometry>
+        <box size="0.04 0.04 0.19"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.085"/>
+      <geometry>
+        <box size="0.04 0.04 0.19"/>
       </geometry>
     </visual>
   </link>
@@ -224,6 +252,13 @@
     <axis xyz="1 0 0"/>
     <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
   </joint>
+  <joint name="q11" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="link_right_hip_motor"/>
+    <child link="link_right_tight"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
+  </joint>
   <!--pierna izquierda-->
   <joint name="q8" type="revolute">
     <origin rpy="0 0 0" xyz="0 -0.055 0.3825"/>
@@ -237,6 +272,13 @@
     <parent link="link_left_hip_metal"/>
     <child link="link_left_hip_motor"/>
     <axis xyz="1 0 0"/>
+    <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
+  </joint>
+  <joint name="q12" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="link_left_hip_motor"/>
+    <child link="link_left_tight"/>
+    <axis xyz="0 1 0"/>
     <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
   </joint>
 </robot>
