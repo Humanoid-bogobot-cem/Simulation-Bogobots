@@ -21,6 +21,7 @@
     <xacro:link_tigh name="link_right_tigh" x = "0.0" y = "0.0" z = "-0.085" row = "0" pitch = "0" yaw = "0"/>
     <xacro:link_knee name="link_right_knee" x = "0.0" y = "0.0" z = "-0.08" row = "0" pitch = "0" yaw = "0"/>
     <xacro:motor_big_double_join name="link_right_ankle_motor" x = "-0.02625" y = "0.0" z = "0.02" row = "0" pitch = "0" yaw = "0"/>
+    <xacro:foot name="link_right_foot" x = "0.025" y = "0.03" z = "0.0" row = "0" pitch = "0" yaw = "0"/>
 
     <!--pierna izquierda-->
     <xacro:hip_metal_link name="link_left_hip_metal" x = "0.0" y = "0.0" z = "-0.0175" row = "0" pitch = "0" yaw = "0"/>
@@ -28,6 +29,7 @@
     <xacro:link_tigh name="link_left_tigh" x = "0.0" y = "0.0" z = "-0.085" row = "0" pitch = "0" yaw = "0"/>
     <xacro:link_knee name="link_left_knee" x = "0.0" y = "0.0" z = "-0.08" row = "0" pitch = "0" yaw = "0"/>
     <xacro:motor_big_double_join name="link_left_ankle_motor" x = "-0.02625" y = "0.0" z = "0.02" row = "0" pitch = "0" yaw = "0"/>
+    <xacro:foot name="link_left_foot" x = "-0.025" y = "-0.03" z = "0.0" row = "0" pitch = "0" yaw = "0"/>
 
 
     <!--JOINTS-->
@@ -120,6 +122,14 @@
         <axis xyz="0 1 0" />
         <limit effort="2.5" lower="${-2*pi}" upper="${2*pi}" velocity="5.76"/>
     </joint>
+    <joint name="q17" type="revolute">
+        <origin rpy="0 0 0" xyz="-0.02625 0.0 -0.01" />
+        <parent link="link_right_ankle_motor" />
+        <child link="link_right_foot" />
+        <axis xyz="1 0 0" />
+        <limit effort="2.5" lower="${-2*pi}" upper="${2*pi}" velocity="5.76"/>
+    </joint>
+
 
 
     <!--pierna izquierda-->
@@ -157,6 +167,13 @@
         <parent link="link_left_knee" />
         <child link="link_left_ankle_motor" />
         <axis xyz="0 1 0" />
+        <limit effort="2.5" lower="${-2*pi}" upper="${2*pi}" velocity="5.76"/>
+    </joint>
+    <joint name="q18" type="revolute">
+        <origin rpy="0 0 0" xyz="0.02625 0.0 -0.01" />
+        <parent link="link_left_ankle_motor" />
+        <child link="link_left_foot" />
+        <axis xyz="1 0 0" />
         <limit effort="2.5" lower="${-2*pi}" upper="${2*pi}" velocity="5.76"/>
     </joint>
 

@@ -174,6 +174,20 @@
       </geometry>
     </visual>
   </link>
+  <link name="link_right_foot">
+    <collision>
+      <origin rpy="0 0 0" xyz="0.025 0.03 0.0"/>
+      <geometry>
+        <box size="0.2 0.15 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.025 0.03 0.0"/>
+      <geometry>
+        <box size="0.2 0.15 0.01"/>
+      </geometry>
+    </visual>
+  </link>
   <link name="link_left_hip_metal">
     <collision>
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.0175"/>
@@ -241,6 +255,20 @@
       <origin rpy="0 0 0" xyz="-0.02625 0.0 0.02"/>
       <geometry>
         <box size="0.095 0.05 0.055"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="link_left_foot">
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.025 -0.03 0.0"/>
+      <geometry>
+        <box size="0.2 0.15 0.01"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.025 -0.03 0.0"/>
+      <geometry>
+        <box size="0.2 0.15 0.01"/>
       </geometry>
     </visual>
   </link>
@@ -329,6 +357,13 @@
     <axis xyz="0 1 0"/>
     <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
   </joint>
+  <joint name="q17" type="revolute">
+    <origin rpy="0 0 0" xyz="-0.02625 0.0 -0.01"/>
+    <parent link="link_right_ankle_motor"/>
+    <child link="link_right_foot"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
+  </joint>
   <!--pierna izquierda-->
   <joint name="q8" type="revolute">
     <origin rpy="0 0 0" xyz="0 -0.055 0.3825"/>
@@ -363,6 +398,13 @@
     <parent link="link_left_knee"/>
     <child link="link_left_ankle_motor"/>
     <axis xyz="0 1 0"/>
+    <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
+  </joint>
+  <joint name="q18" type="revolute">
+    <origin rpy="0 0 0" xyz="0.02625 0.0 -0.01"/>
+    <parent link="link_left_ankle_motor"/>
+    <child link="link_left_foot"/>
+    <axis xyz="1 0 0"/>
     <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
   </joint>
 </robot>

@@ -179,13 +179,13 @@
             <collision>
                 <origin xyz="${x} ${y} ${z}" rpy="${row} ${pitch} ${yaw}" />
                 <geometry>
-                    <box size="0.15 0.2 0.01"/>
+                    <box size="0.2 0.15 0.01"/>
                 </geometry>
             </collision>
             <visual>
                 <origin xyz="${x} ${y} ${z}" rpy="${row} ${pitch} ${yaw}" />
                 <geometry>
-                    <box size="0.15 0.2 0.01"/>
+                    <box size="0.2 0.15 0.01"/>
                 </geometry>
             </visual>
         </link>
