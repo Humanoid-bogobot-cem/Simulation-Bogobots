@@ -160,7 +160,20 @@
       </geometry>
     </visual>
   </link>
-  <!--xacro:motor_double_join name="link_right_ankle_motor" x = "0.0" y = "0.0" z = "0.0" row = "0" pitch = "0" yaw = "0"/-->
+  <link name="link_right_ankle_motor">
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.02625 0.0 0.02"/>
+      <geometry>
+        <box size="0.095 0.05 0.055"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.02625 0.0 0.02"/>
+      <geometry>
+        <box size="0.095 0.05 0.055"/>
+      </geometry>
+    </visual>
+  </link>
   <link name="link_left_hip_metal">
     <collision>
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.0175"/>
@@ -214,6 +227,20 @@
       <origin rpy="0 0 0" xyz="0.0 0.0 -0.08"/>
       <geometry>
         <box size="0.04 0.04 0.18"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="link_left_ankle_motor">
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.02625 0.0 0.02"/>
+      <geometry>
+        <box size="0.095 0.05 0.055"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.02625 0.0 0.02"/>
+      <geometry>
+        <box size="0.095 0.05 0.055"/>
       </geometry>
     </visual>
   </link>
@@ -295,15 +322,13 @@
     <axis xyz="0 1 0"/>
     <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
   </joint>
-  <!--
-    <joint name="q14" type="revolute">
-        <origin rpy="0 0 0" xyz="0 0 0" />
-        <parent link="link_right_tight" />
-        <child link="link_right_ankle_motor" />
-        <axis xyz="0 1 0" />
-        <limit effort="2.5" lower="${-2*pi}" upper="${2*pi}" velocity="5.76"/>
-    </joint>
-    -->
+  <joint name="q15" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 -0.16"/>
+    <parent link="link_right_knee"/>
+    <child link="link_right_ankle_motor"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
+  </joint>
   <!--pierna izquierda-->
   <joint name="q8" type="revolute">
     <origin rpy="0 0 0" xyz="0 -0.055 0.3825"/>
@@ -330,6 +355,13 @@
     <origin rpy="0 0 0" xyz="0 0 -0.17"/>
     <parent link="link_left_tigh"/>
     <child link="link_left_knee"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
+  </joint>
+  <joint name="q16" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 -0.16"/>
+    <parent link="link_left_knee"/>
+    <child link="link_left_ankle_motor"/>
     <axis xyz="0 1 0"/>
     <limit effort="2.5" lower="-6.283185307179586" upper="6.283185307179586" velocity="5.76"/>
   </joint>

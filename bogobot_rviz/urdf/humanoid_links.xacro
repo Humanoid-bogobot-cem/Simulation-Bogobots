@@ -156,6 +156,23 @@
     		</visual>
 		</link>
 	</xacro:macro>
+	<xacro:macro name="motor_big_double_join" params="name x y z row pitch yaw">
+		<link name="${name}">
+			<collision>
+        		<origin xyz="${x} ${y} ${z}" rpy="${row} ${pitch} ${yaw}"  />
+        		<geometry>
+            			<box size="0.095 0.05 0.055"/>
+        		</geometry>
+    		</collision>
+			<visual>
+        		<origin xyz="${x} ${y} ${z}" rpy="${row} ${pitch} ${yaw}" />
+        		<geometry>
+            			<box size="0.095 0.05 0.055"/>
+        		</geometry>
+    		</visual>
+		</link>
+	</xacro:macro>
+
 
 	<xacro:macro name="foot" params="name x y z row pitch yaw">
         <link name="${name}">
