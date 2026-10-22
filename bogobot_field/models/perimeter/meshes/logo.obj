@@ -1,0 +1,15 @@
+# Letrero del logo: rectángulo de 1.812 x 0.6 m (proporción 3.02:1 de logo.png)
+# en el plano X = 0, mirando hacia +X, centrado en el origen
+mtllib logo.mtl
+v 0 -0.906 -0.3
+v 0 0.906 -0.3
+v 0 0.906 0.3
+v 0 -0.906 0.3
+vt 0 0
+vt 1 0
+vt 1 1
+vt 0 1
+vn 1 0 0
+usemtl logo
+f 1/1/1 2/2/1 3/3/1
+f 1/1/1 3/3/1 4/4/1
