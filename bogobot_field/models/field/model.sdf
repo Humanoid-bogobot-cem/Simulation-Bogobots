@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <model name="field">
+    <static>true</static>
+    <link name="field_link">
+
+      <collision name="ground_collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>11 8</size>
+          </plane>
+        </geometry>
+      </collision>
+
+      <visual name="grass_visual">
+        <geometry>
+          <mesh><uri>model://field/meshes/grass.obj</uri></mesh>
+        </geometry>
+      </visual>
+
+      <visual name="lines_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <mesh><uri>model://field/meshes/lines.obj</uri></mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
