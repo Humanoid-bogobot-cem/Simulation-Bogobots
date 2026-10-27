@@ -30,6 +30,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'joint_publisher = bogobot_rviz.joint_publisher:main',
         ],
     },
 )

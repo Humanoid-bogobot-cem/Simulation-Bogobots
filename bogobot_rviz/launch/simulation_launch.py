@@ -10,6 +10,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     urdf = FileContent(
         PathJoinSubstitution([FindPackageShare('bogobot_rviz'),'urdf','humanoid_main.urdf']))
+    rviz_config = PathJoinSubstitution([FindPackageShare('bogobot_rviz'), 'urdf', 'rviz_conf.rviz'])
     #path_to_urdf = get_package_share_path('robot_simulation') / 'urdf' / 'humanoid_main.urdf'
 
     return LaunchDescription([
@@ -22,6 +23,18 @@ def generate_launch_description():
             executable='robot_state_publisher',
             name='robot_state_publisher',
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': urdf}],
-            arguments=[urdf]),
+            parameters=[{'use_sim_time': use_sim_time, 'robot_description': urdf}]),
+        Node(
+            package='bogobot_rviz',
+            executable='joint_publisher',
+            name='joint_publisher',
+            output='screen',
+            parameters=[{'use_sim_time': use_sim_time}]),
+        Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            output='screen',
+            arguments=['-d', rviz_config],
+            parameters=[{'use_sim_time': use_sim_time}]),
     ])
